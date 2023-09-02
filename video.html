@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Document</title>
+    <style>
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio (height / width) */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+        }
+    
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    
+        /* Adjustments for smaller screens */
+        @media (max-width: 767px) {
+            .video-container {
+                padding-bottom: 75%; /* 4:3 aspect ratio for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container card" id="video">
+        <div class="row">
+            <div class="col-md-6 col-lg-6 col-xs-12">
+                <div class="video-container pt-5">
+                    <iframe src="https://www.youtube.com/embed/JDIWSBm4hVo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                </div>
+            </div>
+    
+            <div class="col-md-6 col-lg-6 col-xs-12">
+                <div class="video-container pt-5">
+                    <iframe src="https://www.youtube.com/embed/x3yDLHdVY6A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

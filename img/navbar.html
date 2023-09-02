@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Navigation Menu with Toggle</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  #navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:whitesmoke;
+    padding: 10px 20px;
+    color: white;
+  }
+  nav {
+    height: 80px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #cb9857;
+    transition: 1s;
+  }
+
+  nav.scrollNav {
+    height: 60px;
+   font-size:10px;
+
+  }
+
+  img {
+    height: auto;
+    max-width: 100%;
+  }
+
+  .content {
+    text-align: center;
+  }
+
+  .nav-content {
+    padding: 0 100px;
+  }
+
+  img.logo {
+    height: 50px;
+    padding: 20px;
+    transition: 1s;
+    /* border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%; */
+  }
+
+  .logo {
+    width: 80px;
+    height: auto;
+  }
+
+  .menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+
+  .menu-item {
+    margin-right: 20px;
+  }
+
+  .menu-item:last-child {
+    margin-right: 0;
+  }
+
+  .menu-link {
+    text-decoration: none;
+    color: gray;
+  }
+
+  /* Toggle Button Styles */
+  .toggle-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 50px;
+    color: white;
+    cursor: pointer;
+  }
+
+  /* Media Queries for Tablet and Mobile */
+  @media (max-width: 768px) {
+    .menu {
+      display: none;
+    }
+
+    .toggle-btn {
+      display: block;
+    }
+
+    .menu.active {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 50px;
+      left: 0;
+      background-color: #333;
+      width: 100%;
+      z-index: 1;
+    }
+
+    .menu-item {
+      margin: 0;
+      padding: 20px 30px;
+      border-bottom: 1px solid black;
+
+    }
+
+    .menu-item:last-child {
+      border-bottom: none;
+    }
+  }
+</style>
+</head>
+<body>
+
+<nav id="navbar" style="padding: 20px 0;">
+    <div class="nav-content">
+        <img src="final-logo 123.png" class="logo" alt=""  style="margin-right: 60px; height: 60px; width: 215px;">
+    </div>
+    <button class="toggle-btn" id="toggleBtn">
+        &#9776;
+    </button>
+    <ul class="menu" id="menu">
+        <li style="padding-right:20px;" class="menu-item"> <a class="menu-link text-center <?php echo ($page == 'index') ? '' : 'active'; ?>" href="index.php" style="color:black">HOME</a></li>
+        <li style="padding-right:20px;" class="menu-item"> <a class="menu-link text-center <?php echo ($page == 'about') ? 'active' : ''; ?>" href="about.php"  style="color:black">ABOUT</a></li>
+        <li  style="padding-right:20px;" class="menu-item"> <a class="menu-link text-center <?php echo ($page == 'services') ? 'active' : ''; ?>" href="services.php"  style="color:black">SERVICES</a></li>
+        <li style="padding-right:20px;"  class="menu-item"> <a class="menu-link text-center <?php echo ($page == 'contact') ? 'active' : ''; ?>" href="contact.php"  style="color:black">CONTACT US</a></li>
+        <li style="padding-right:20px;" class="menu-item"> <a class="menu-link text-center <?php echo ($page == 'numbers') ? 'active' : ''; ?>" href="numbers.php"  style="color:black">NUMBERS</a></li>
+    </ul>
+</nav>
+
+
+
+
+<script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+      crossorigin="anonymous"
+    ></script>
+    <script >
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 50) {
+                $("#navbar").addClass("scrollNav");
+            } else {
+                $("#navbar").removeClass("scrollNav");
+            }
+        });
+
+     
+    </script>
+<script>
+  const toggleBtn = document.getElementById('toggleBtn');
+  const menu = document.getElementById('menu');
+
+  toggleBtn.addEventListener('click', () => {
+    menu.classList.toggle('active');
+    menu.classList.toggle('show-menu');
+    toggleBtn.classList.toggle('active'); 
+  });
+</script>
+
+
+
+
+</body>
+</html>

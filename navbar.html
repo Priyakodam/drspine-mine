@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Scroll Down/Up - Add/Remove Class</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      nav {
+        height: 80px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: #cb9857;
+        transition: 1s;
+      }
+
+      nav.scrollNav {
+        height: 60px;
+        background-color: #02846c;
+      }
+
+      img {
+        height: auto;
+        max-width: 100%;
+      }
+
+      .content {
+        text-align: center;
+      }
+
+      .nav-content {
+        padding: 0 100px;
+      }
+
+      img.logo {
+        height: 50px;
+        background: #cb9857;
+        padding: 20px;
+        transition: 1s;
+        /* border-bottom-left-radius: 50%;
+        border-bottom-right-radius: 50%; */
+      }
+
+      /* nav.scrollNav img.logo {
+        height: 40px;
+        padding: 10px;
+        background: transparent;
+      } */
+
+      /* body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      } */
+
+      #navbar {
+        background-color: #333;
+        color: white;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        max-width: 100px;
+      }
+
+      .menu {
+        list-style: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+      }
+
+      .menu-item {
+        margin-right: 20px;
+      }
+
+      .menu-item:last-child {
+        margin-right: 0;
+      }
+
+      .menu-link {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+      }
+    </style>
+
+
+<style>
+    .navbar-nav {
+        white-space: nowrap; /* Prevent line breaks */
+    }
+
+    .nav-item {
+        margin-right: 20px; /* Adjust as needed to control spacing */
+    }
+
+    .nav-link {
+        padding: 8px 16px; /* Add padding for better appearance */
+    }
+</style>
+
+
+<style>
+         .nav-link:hover {
+color: #61156B !important;
+text-decoration: underline !important;
+}
+        </style>
+  </head>
+
+  <body>
+
+
+    <!-- <nav id="navbar">
+      <div class="nav-content">
+        <img src="logo.png" class="logo" alt="" />
+      </div>
+      <ul class="menu">
+        <li class="menu-item"><a href="#home" class="menu-link">Home</a></li>
+        <li class="menu-item"><a href="#about" class="menu-link">About</a></li>
+        <li class="menu-item">
+          <a href="#services" class="menu-link">Services</a>
+        </li>
+          <li class="menu-item"><a href="#home" class="menu-link">Home</a></li>
+        <li class="menu-item"><a href="#about" class="menu-link">About</a></li>
+      </ul>
+    </nav> -->
+
+    <nav id="navbar">
+  <div class="nav-content">
+    <img src="logo.png" class="logo" alt="" />
+    <button class="toggle-btn" onclick="toggleMenu()">
+      <i class="fa fa-bars"></i>
+    </button>
+  </div>
+
+    <div class="collapse navbar-collapse" id="navbarNav" style="padding: 32px 0;"></div>
+  <ul id="menu"  class="navbar-nav ml-auto navbar-items menu" style="font-size: 16px ;letter-spacing:2px">
+    <li class="menu-item"><a class="nav-link text-center <?php echo ($page == 'index') ? '' : 'active'; ?>" href="index.html" style="color:white">HOME</a></li>
+    <li class="menu-item"><a href="#about" class="menu-link">About</a></li>
+    <li class="menu-item">
+      <a href="#services" class="menu-link">Services</a>
+    </li>
+    <li class="menu-item"><a href="#home" class="menu-link">Home</a></li>
+    <li class="menu-item"><a href="#about" class="menu-link">About</a></li>
+  </ul>
+   </div>
+</nav>
+
+
+
+    <div class="content">
+      <img src="image.jpg" alt="" />
+      <h1>Content Start</h1>
+      <h1>Content</h1>
+      <h1>Content</h1>
+      <h1>Content</h1>
+      <h1>Content</h1>
+      <h1>Content</h1>
+      <h1>Content</h1>
+      <h1>Content</h1>
+      <h1>Content</h1>
+      <h1>Content</h1>
+      <h1>Content</h1>
+      <h1>Content</h1>
+      <h1>Content</h1>
+      <h1>Content</h1>
+      <h1>Content</h1>
+      <h1>Content</h1>
+      <h1>Content</h1>
+      <h1>Content</h1>
+      <h1>Content</h1>
+      <h1>Content</h1>
+      <h1>Content</h1>
+      <h1>Content</h1>
+      <h1>Content</h1>
+      <h1>Content</h1>
+      <h1>Content</h1>
+      <h1>Content</h1>
+      <h1>Content</h1>
+      <h1>Content</h1>
+      <h1>Content End</h1>
+      <!--        <img src="web-site-screenshot.png" alt="">-->
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 50) {
+          $("#navbar").addClass("scrollNav");
+        } else {
+          $("#navbar").removeClass("scrollNav");
+        }
+      });
+    </script>
+  </body>
+</html>
